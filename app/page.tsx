@@ -1,65 +1,188 @@
+"use client";
+
+import ScrollReveal from "@/components/ScrollReveal";
+import { motion } from "framer-motion";
 import Image from "next/image";
+import LogoCarousel from "@/components/LogoCarousel";
+
+/* ================= SERVICES ================= */
+const services = [
+  { title: "Automation & Engineering", image: "/services/automation.png" },
+  { title: "Test Equipments & Test Solutions", image: "/services/test-equipment.png" },
+  { title: "Smart Solutions & IoT", image: "/services/smart-iot.png" },
+  { title: "Consulting & Services", image: "/services/consulting.png" },
+  { title: "Infra Project & Turn-key", image: "/services/infra-turnkey.png" },
+  { title: "Avenir Online", image: "/services/avenir-online.png" },
+];
+
+/* ================= PRODUCTS ================= */
+const products = [
+  { title: "IoT & Smart Solutions", desc: "Real-time monitoring, automation, and analytics-driven systems." },
+  { title: "OEM Products", desc: "Custom-built hardware and embedded solutions for enterprises." },
+  { title: "ATI Services", desc: "Advanced testing, instrumentation, and engineering services." },
+  { title: "Oxygen & Wellness", desc: "Health-focused air and oxygen enhancement technologies." },
+  { title: "VaayuPure", desc: "Premium indoor air purification for modern spaces." },
+  { title: "Custom Engineering", desc: "Tailored solutions designed to scale with your business." },
+];
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <main className="pt-28 min-h-screen bg-black text-white">
+
+      {/* ================= HERO ================= */}
+      <section className="relative h-[calc(100vh-7rem)] flex items-center bg-black">
+        <div className="mx-auto max-w-7xl px-6 w-full">
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+
+            {/* LEFT: BIG STATEMENT */}
+            <motion.div
+              initial={{ opacity: 0, y: 32 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="lg:col-span-7"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              <h1 className="text-[clamp(3rem,8vw,6.5rem)] font-extrabold leading-[0.92] tracking-tight">
+                TOGETHER WE
+                <br />
+                <span className="inline-flex items-center gap-4">
+                  ENGINEER
+                  <span className="text-teal-400">&gt;</span>
+                  FUTURE
+                </span>
+              </h1>
+            </motion.div>
+
+            {/* RIGHT: CONTEXT (FIXED POSITION) */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="lg:col-span-5 flex items-start -mt-10"
             >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+              <div className="border-l border-white/20 pl-6 max-w-md">
+                <span className="block mb-4 h-1 w-10 bg-teal-400" />
+                <h3 className="text-xl font-semibold mb-4">
+                  Shaping tomorrow, today
+                </h3>
+                <p className="text-slate-300 leading-relaxed mb-6">
+                  In a world of constant change, engineering excellence is a
+                  continuous strategy. We partner with industries to redefine
+                  automation, intelligence, and sustainable growth.
+                </p>
+                <a
+                  href="/products"
+                  className="inline-flex items-center gap-2 text-teal-400 font-semibold hover:gap-3 transition-all"
+                >
+                  See what we do <span className="text-2xl">→</span>
+                </a>
+              </div>
+            </motion.div>
+
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* ================= CLIENT LOGOS ================= */}
+      <section className="py-24">
+        <div className="mx-auto max-w-7xl px-6 text-center">
+          <h2 className="text-3xl font-semibold">
+            Trusted by Industry Leaders
+          </h2>
+          <div className="mt-16">
+            <LogoCarousel />
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* ================= SERVICES ================= */}
+      <section className="py-28 bg-[#020617]">
+        <div className="mx-auto max-w-7xl px-6">
+
+          <ScrollReveal>
+            <h2 className="text-4xl font-bold text-center">
+              Our Capabilities
+            </h2>
+          </ScrollReveal>
+
+          <div className="mt-20 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+            {services.map((service, index) => (
+              <ScrollReveal key={index} delay={index * 0.08}>
+                <div className="group rounded-3xl overflow-hidden glass shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-500">
+                  <div className="relative h-56">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition duration-700"
+                    />
+                    <div className="absolute inset-0 bg-black/20" />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-lg font-semibold">
+                      {service.title}
+                    </h3>
+                  </div>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* ================= PRODUCTS ================= */}
+      <section className="py-24 bg-black">
+        <div className="mx-auto max-w-7xl px-6">
+          <ScrollReveal>
+            <h2 className="text-4xl font-bold text-center">
+              Our Product Solutions
+            </h2>
+          </ScrollReveal>
+
+          <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {products.map((item, index) => (
+              <ScrollReveal key={index} delay={index * 0.08}>
+                <div className="rounded-2xl glass p-8 shadow-lg hover:shadow-xl transition">
+                  <h3 className="text-xl font-semibold">
+                    {item.title}
+                  </h3>
+                  <p className="mt-3 text-slate-300">
+                    {item.desc}
+                  </p>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ================= NEWS ================= */}
+      <section className="py-24 bg-[#020617]">
+        <div className="mx-auto max-w-6xl px-6">
+          <ScrollReveal>
+            <h2 className="text-3xl font-semibold">
+              News & Stories
+            </h2>
+          </ScrollReveal>
+
+          <div className="mt-12 space-y-6">
+            {[
+              "Adani Power – Automation Deployment",
+              "Defence Lab – Testing Solutions",
+              "MSIL – Instrumentation Supply",
+              "Exicom – Infrastructure Project",
+            ].map((n, i) => (
+              <ScrollReveal key={i} delay={i * 0.08}>
+                <div className="rounded-2xl glass p-6 shadow-lg hover:shadow-xl transition text-slate-200">
+                  {n}
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+    </main>
   );
 }
